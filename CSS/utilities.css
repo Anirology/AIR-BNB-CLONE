@@ -1,0 +1,26 @@
+/* ============================================================
+       SECTION 2 – UTILITIES CSS  (reusable helper classes)
+    ============================================================ */
+
+    /* Vertical centering shorthand */
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Consistent section padding */
+    .section-pad {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    /* Pink text utility */
+    .text-brand {
+      color: var(--brand-pink) !important;
+    }
+
+    /* Muted text utility */
+    .text-muted-brand {
+      color: var(--brand-mid) !important;
+    }

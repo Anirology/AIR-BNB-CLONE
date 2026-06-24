@@ -1,0 +1,55 @@
+   @media (max-width: 576px) {
+
+      /* -- Navbar -- */
+      .nav-host-link {
+        display: none;          /* hide "Airbnb your home" on small screens */
+      }
+
+      /* -- Hero -- */
+      .hero-section {
+        min-height: 100svh;     /* use small viewport height on mobile */
+        padding-bottom: 60px;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.65rem;
+      }
+
+      /* -- Search card: stack inputs vertically -- */
+      .search-inputs {
+        grid-template-columns: 1fr;
+      }
+
+      .search-field {
+        border-right: none;
+        border-bottom: 1px solid var(--brand-border);
+        padding: 10px 16px;
+      }
+
+      .search-field:last-of-type {
+        border-bottom: none;
+      }
+
+      /* Center search button on mobile */
+      .search-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0 12px;
+      }
+
+      /* -- Stat section: remove vertical dividers on mobile -- */
+      .stat-item + .stat-item {
+        border-left: none;
+        border-top: 1px solid var(--brand-border);
+      }
+
+      .stat-item {
+        padding: 20px 0;
+      }
+
+      /* -- Destination cards: equal heights on mobile -- */
+      .dest-card-tall,
+      .dest-card-short {
+        height: 220px;
+      }
+    }

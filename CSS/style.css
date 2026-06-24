@@ -1,0 +1,529 @@
+
+    /* ============================================================
+       SECTION 1 – STYLE CSS  (base design tokens & components)
+    ============================================================ */
+
+    /* ---------- Design Tokens / Color Palette ---------- */
+    :root {
+      --brand-pink:    #FF385C;   /* Airbnb primary / CTA red-pink         */
+      --brand-gold:    #E8A317;   /* Hero headline accent ("wander")        */
+      --brand-dark:    #222222;   /* Primary text                           */
+      --brand-mid:     #717171;   /* Secondary / muted text                 */
+      --brand-light:   #F7F7F7;   /* Section backgrounds                    */
+      --brand-white:   #FFFFFF;
+      --brand-border:  #DDDDDD;   /* Dividers, pill borders                 */
+      --nav-height:    72px;
+    }
+
+    /* ---------- Global Reset & Base ---------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--brand-dark);
+      background-color: var(--brand-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Typography Helpers ---------- */
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+
+    /* Sticky white bar that floats above the hero */
+    .airbnb-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      height: var(--nav-height);
+      background-color: var(--brand-white);
+      border-bottom: 1px solid var(--brand-border);
+    }
+
+    /* Logo wordmark */
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand-pink);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo i {
+      font-size: 1.3rem;
+      margin-right: 4px;
+    }
+
+    /* "Airbnb your home" link (right side) */
+    .nav-host-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--brand-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-host-link:hover {
+      color: var(--brand-pink);
+    }
+
+    /* Globe icon button */
+    .nav-icon-btn {
+      background: none;
+      border: none;
+      color: var(--brand-dark);
+      font-size: 1rem;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .nav-icon-btn:hover {
+      background-color: var(--brand-light);
+    }
+
+    /* Pill button that holds hamburger + avatar */
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-white);
+      border: 1px solid var(--brand-border);
+      border-radius: 24px;
+      padding: 6px 8px 6px 14px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+
+    .nav-pill:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Avatar circle */
+    .nav-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #717171;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-white);
+      font-size: 0.85rem;
+    }
+
+    /* ---- Profile Dropdown ---- */
+    .profile-dropdown {
+      display: none;              /* hidden by default; shown via :focus-within */
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 200px;
+      background: var(--brand-white);
+      border: 1px solid var(--brand-border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      z-index: 200;
+      overflow: hidden;
+    }
+
+    /* Show on hover (pure CSS – no JS) */
+    .nav-pill:hover .profile-dropdown,
+    .nav-pill:focus-within .profile-dropdown {
+      display: block;
+    }
+
+    .profile-dropdown a {
+      display: block;
+      padding: 12px 18px;
+      font-size: 0.875rem;
+      color: var(--brand-dark);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .profile-dropdown a:hover {
+      background: var(--brand-light);
+    }
+
+    /* Divider between "Login" and "Airbnb your home" */
+    .profile-dropdown .dropdown-divider {
+      border: none;
+      border-top: 1px solid var(--brand-border);
+      margin: 4px 0;
+    }
+
+    .profile-dropdown a.active {
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+
+    /* Full-viewport hero with a background image overlay */
+    .hero-section {
+      position: relative;
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Background image – uses an Unsplash lake/mountain landscape */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      /* Slight dark overlay to keep text readable */
+      filter: brightness(0.75);
+      z-index: 0;
+    }
+
+    /* All hero content sits above the background */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 16px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Eyebrow label */
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      color: var(--brand-white);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* Main headline – large serif */
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: var(--brand-white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    /* "wander" in gold accent – exactly as per PDF */
+    .hero-headline .accent {
+      color: var(--brand-gold);
+      font-style: italic;
+    }
+
+    /* Subheadline */
+    .hero-subtext {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+    }
+
+    /* ---- Search Card ---- */
+    .search-card {
+      background: var(--brand-white);
+      border-radius: 16px;
+      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    /* Tab row (Stays / Experiences / Online Experiences) */
+    .search-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--brand-border);
+      padding: 0 16px;
+    }
+
+    .search-tab {
+      background: none;
+      border: none;
+      padding: 14px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--brand-mid);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;       /* overlap the card border */
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .search-tab.active {
+      color: var(--brand-dark);
+      border-bottom-color: var(--brand-dark);
+    }
+
+    /* Input row */
+    .search-inputs {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 0.9fr auto;
+      align-items: center;
+    }
+
+    .search-field {
+      padding: 12px 20px;
+      border-right: 1px solid var(--brand-border);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .search-field:last-of-type {
+      border-right: none;
+    }
+
+    .search-field:hover {
+      background: var(--brand-light);
+      border-radius: 8px;
+    }
+
+    .search-field-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--brand-dark);
+      margin-bottom: 2px;
+    }
+
+    .search-field-value {
+      font-size: 0.85rem;
+      color: var(--brand-mid);
+    }
+
+    /* Pink search button */
+    .search-btn {
+      background: var(--brand-pink);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      margin: 8px 12px;
+      color: var(--brand-white);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .search-btn:hover {
+      background: #e0234a;
+      transform: scale(1.05);
+    }
+
+    /* ---- Category Pills ---- */
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .hero-pill {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--brand-white);
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .hero-pill:hover {
+      background: rgba(255, 255, 255, 0.35);
+      border-color: var(--brand-white);
+    }
+
+    /* ---- "Explore below" Bouncing Indicator ---- */
+    .explore-below {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .explore-below span {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    /* Bounce animation on the chevron icon */
+    .explore-below i {
+      font-size: 0.9rem;
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+
+    /* ============================================================
+       STAT SECTION
+    ============================================================ */
+
+    .stat-section {
+      background: var(--brand-white);
+      border-top: 1px solid var(--brand-border);
+      border-bottom: 1px solid var(--brand-border);
+      padding: 40px 0;
+    }
+
+    /* Stat number – large, pink */
+    .stat-number {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--brand-pink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    /* Stat label – small, dark grey */
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--brand-mid);
+    }
+
+    /* Vertical dividers between stat items (desktop only) */
+    .stat-item + .stat-item {
+      border-left: 1px solid var(--brand-border);
+    }
+
+    /* ============================================================
+       TOP DESTINATIONS SECTION
+    ============================================================ */
+
+    .destinations-section {
+      background: var(--brand-white);
+      padding: 60px 0 80px;
+    }
+
+    /* Pink eyebrow label */
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-pink);
+      margin-bottom: 8px;
+    }
+
+    /* Section headline */
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--brand-dark);
+    }
+
+    /* "Show all" link */
+    .show-all-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .show-all-link:hover {
+      color: var(--brand-pink);
+    }
+
+    /* ---- Destination Cards ---- */
+    .dest-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    /* Card image */
+    .dest-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .dest-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Dark gradient at the bottom to make text pop */
+    .dest-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+    }
+
+    /* Text overlay */
+    .dest-card-text {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      z-index: 1;
+      color: var(--brand-white);
+    }
+
+    .dest-card-city {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .dest-card-meta {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* Height helpers for the mosaic grid */
+    .dest-card-tall { height: 280px; }
+    .dest-card-short { height: 280px; }
