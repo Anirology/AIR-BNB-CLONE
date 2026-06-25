@@ -1,0 +1,28 @@
+/* Custom utility for the small uppercase sub-header tracking */
+.tracking-wide {
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+}
+
+/* Styled rounded container for icons to match the image design */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography polish */
+.step-number {
+  font-size: 0.8rem;
+}
+
+.how-it-works h5 {
+  font-size: 1.05rem;
+}
+
+.how-it-works p {
+  font-size: 0.875rem;
+  color: #5e5e5e !important;
+}
