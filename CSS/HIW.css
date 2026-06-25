@@ -1,0 +1,61 @@
+/*How It Works Section*/
+.how-it-works{
+    padding: 80px 10%;
+    background:#fff;
+} 
+
+section-title p{
+    color: #777;
+}
+
+.steps{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.step-box{
+    text-align: center;
+    max-width: 300px;
+    position: relative;
+}
+
+.step-number{
+    display: block;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #f1f1f1;
+    margin-bottom: -20px;
+}
+
+.step-box i{
+    font-size: 60px;
+    color: #ff5a5f;
+    margin-bottom: 20px;
+}
+
+.step-box h4{
+    margin-bottom: 15px;
+}
+
+.step-box p{
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .steps{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-title h2{
+        font-size: 2rem;
+    }
+
+    .step-number{
+        font-size: 3rem;
+    }
+}
