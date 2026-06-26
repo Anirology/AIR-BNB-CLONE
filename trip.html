@@ -3,15 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Page : AirBnB</title>
+    <title>Airbnb - Trip Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/trip.css">
 </head>
 <body>
-      <!-- ============================================================
-       Trip Page
-       • Cards with side image
-       • Image Hover
-       • Empty Cancel Section
-       • 3 time line sections
-  ============================================================ -->
+     <div class="trip-page-container">
+        <header class="airbnb-nav">
+            <div class="nav-logo">
+                <i class="fa-brands fa-airbnb"></i>
+                <span>airbnb</span>
+            </div>
+            <div class="nav-search-bar">
+                <button class="search-btn">Anywhere</button>
+                <button class="search-btn">Any week</button>
+                <button class="search-btn add-guests">Add guests <span class="search-icon-circle"><i class="fa-solid fa-magnifying-glass"></i></span></button>
+            </div>
+            <div class="nav-profile-menu">
+                <span class="host-text">Airbnb your home</span>
+                <i class="fa-solid fa-globe globe-icon"></i>
+                <div class="profile-box">
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-circle-user user-avatar-icon"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="trip-main-content">
+            <h2 class="main-title">Trips</h2>
+            <p class="sub-title">Your travel history and upcoming adventures.</p>
+
+            <div class="trip-tabs">
+                <button class="tab-btn" onclick="openTab(event, 'Upcoming')">Upcoming <span class="tab-badge">1</span></button>
+                <button class="tab-btn active" onclick="openTab(event, 'Past')">Past</button>
+                <button class="tab-btn" onclick="openTab(event, 'Cancelled')">Cancelled</button>
+            </div>
+
+            <div id="Upcoming" class="tab-content">
+                <div class="trips-list">
+                    <p style="padding: 10px 0 20px 0; font-weight: 500;">You have 1 upcoming trip! Get ready to pack your bags.</p>
+                    
+                    <div class="trip-card">
+                        <div class="trip-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=600" alt="Santorini Villa">
+                        </div>
+                        <div class="trip-details">
+                            <div class="status-row">
+                                <span class="status-tag" style="color: #d70466;">UPCOMING</span>
+                                <span class="checkmark-icon" style="color: #d70466;"><i class="fa-solid fa-clock"></i></span>
+                            </div>
+                            <h3 class="property-title">Beautiful Cliffside Villa</h3>
+                            <p class="property-location"><i class="fa-solid fa-location-dot"></i> Oia, Santorini, Greece</p>
+
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="label">CHECK-IN</span>
+                                    <span class="val">Nov 12, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">CHECKOUT</span>
+                                    <span class="val">Nov 18, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">GUESTS</span>
+                                    <span class="val">2 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="action-row">
+                                <div class="payment-info">
+                                    <span class="label">Confirmation code</span>
+                                    <span class="val text-muted">GREECE88</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <a href="#" class="view-details-link">Manage trip</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Past" class="tab-content active-content">
+                <div class="trips-list">
+                    
+                    <div class="trip-card">
+                        <div class="trip-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600" alt="Bali Retreat">
+                        </div>
+                        <div class="trip-details">
+                            <div class="status-row">
+                                <span class="status-tag completed">COMPLETED</span>
+                                <span class="checkmark-icon"><i class="fa-solid fa-circle-check"></i></span>
+                            </div>
+                            <h3 class="property-title">Beachfront Bali Retreat</h3>
+                            <p class="property-location"><i class="fa-solid fa-location-dot"></i> Seminyak, Bali</p>
+
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="label">CHECK-IN</span>
+                                    <span class="val">Mar 3, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">CHECKOUT</span>
+                                    <span class="val">Mar 8, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">GUESTS</span>
+                                    <span class="val">4 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="action-row">
+                                <div class="payment-info">
+                                    <span class="label">Confirmation code</span>
+                                    <span class="val text-muted">BALI122</span>
+                                </div>
+                                <div class="payment-info">
+                                    <span class="label">Total paid</span>
+                                    <span class="val total-amount">$1,860</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <a href="#" class="view-details-link">View details</a>
+                                    <button class="review-btn">Leave review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trip-card">
+                        <div class="trip-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600" alt="Kyoto Townhouse">
+                        </div>
+                        <div class="trip-details">
+                            <div class="status-row">
+                                <span class="status-tag completed">COMPLETED</span>
+                                <span class="checkmark-icon"><i class="fa-solid fa-circle-check"></i></span>
+                            </div>
+                            <h3 class="property-title">Kyoto Machiya Townhouse</h3>
+                            <p class="property-location"><i class="fa-solid fa-location-dot"></i> Gion, Kyoto</p>
+
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="label">CHECK-IN</span>
+                                    <span class="val">Jan 10, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">CHECKOUT</span>
+                                    <span class="val">Jan 14, 2026</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">GUESTS</span>
+                                    <span class="val">2 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="action-row">
+                                <div class="payment-info">
+                                    <span class="label">Confirmation code</span>
+                                    <span class="val text-muted">TOKYO44</span>
+                                </div>
+                                <div class="payment-info">
+                                    <span class="label">Total paid</span>
+                                    <span class="val total-amount">$620</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <a href="#" class="view-details-link">View details</a>
+                                    <button class="review-btn">Leave review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="Cancelled" class="tab-content">
+                <div class="trips-list">
+                    <p style="padding: 20px 0; color: #717171;">You have no cancelled trips.</p>
+                </div>
+            </div>
+
+            <footer class="trip-footer">
+                <div class="footer-icon-circle">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <h3>Ready for your next adventure?</h3>
+                <p>You've visited 2 amazing places. Where to next?</p>
+                <button class="explore-btn">Explore stays</button>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            let tabContent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+
+            let tabLinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
 </body>
 </html>
