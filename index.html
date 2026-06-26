@@ -131,21 +131,31 @@
           </div>
 
           <!-- CHECK IN -->
-          <div class="search-field" role="group" aria-label="Check-in date">
-            <div class="search-field-label">Check in</div>
-            <div class="search-field-value">
-              mm/dd/yyyy <i class="fa-regular fa-calendar" style="font-size:0.75rem;"></i>
-            </div>
+        <div class="search-field" role="group" aria-label="Check-in date">
+          <label for="check-in-date" class="search-field-label d-block fw-bold mb-1">Check in</label>
+          <div class="search-field-value position-relative">
+            <input 
+              type="date" 
+              id="check-in-date" 
+              class="form-control border-0 p-0 shadow-none bg-transparent" 
+              required
+            >
           </div>
+        </div>
+
 
           <!-- CHECK OUT -->
-          <div class="search-field" role="group" aria-label="Check-out date">
-            <div class="search-field-label">Check out</div>
-            <div class="search-field-value">
-              mm/dd/yyyy <i class="fa-regular fa-calendar" style="font-size:0.75rem;"></i>
-            </div>
+        <div class="search-field" role="group" aria-label="Check-out date">
+          <label for="check-out-date" class="search-field-label d-block fw-bold mb-1">Check out</label>
+          <div class="search-field-value position-relative">
+            <input 
+              type="date" 
+              id="check-out-date" 
+              class="form-control border-0 p-0 shadow-none bg-transparent" 
+              required
+            >
           </div>
-
+        </div>
           <!-- WHO -->
           <div class="search-field" role="group" aria-label="Number of guests">
             <div class="search-field-label">Who</div>
