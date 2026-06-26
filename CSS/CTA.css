@@ -1,0 +1,226 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #222222;
+    /* padding: 40px 20px; */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header Text styling */
+.section-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.section-main-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin-bottom: 40px;
+}
+
+/* ================= TESTIMONIALS STYLING ================= */
+.testimonials-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tagline {
+    font-size: 11px;
+    font-weight: 700;
+    color: #e61e4d; /* Airbnb Pink/Red tone */
+    letter-spacing: 1px;
+}
+
+.testimonials-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin: 8px 0 35px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.stars {
+    color: #ff385c;
+    font-size: 14px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.review-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #484848;
+    margin-bottom: 20px;
+    min-height: 90px; /* Aligns the profile section */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #717171;
+}
+
+/* ================= CTA BANNER STYLING ================= */
+.cta-banner {
+    /* Image background simulation with dark overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000') no-repeat center center/cover;
+    border-radius: 20px;
+    padding: 60px 50px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.cta-left {
+    flex: 1;
+}
+
+.cta-tagline {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ff385c;
+    letter-spacing: 1px;
+}
+
+.cta-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 10px 0 15px 0;
+    max-width: 450px;
+}
+
+.cta-desc {
+    font-size: 14px;
+    color: #e3e3e3;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #222222;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* CTA Right (Features Grid) */
+.cta-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: 20px;
+    color: #ff385c;
+    margin-top: 2px;
+}
+
+.feature-box h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.feature-box p {
+    font-size: 12px;
+    color: #cdcdcd;
+    line-height: 1.4;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 900px) {
+    .cta-banner {
+        flex-direction: column;
+        padding: 40px 25px;
+    }
+    
+    .cta-right {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
