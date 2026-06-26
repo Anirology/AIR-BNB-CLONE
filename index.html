@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="./CSS/footer.css">
     <link rel="stylesheet" href="./CSS/guest.css">
     <link rel="stylesheet" href="CSS/CTA.css">
+</head>
 <body>
 
   <!-- ============================================================
@@ -131,21 +132,31 @@
           </div>
 
           <!-- CHECK IN -->
-          <div class="search-field" role="group" aria-label="Check-in date">
-            <div class="search-field-label">Check in</div>
-            <div class="search-field-value">
-              mm/dd/yyyy <i class="fa-regular fa-calendar" style="font-size:0.75rem;"></i>
-            </div>
+        <div class="search-field" role="group" aria-label="Check-in date">
+          <label for="check-in-date" class="search-field-label d-block fw-bold mb-1">Check in</label>
+          <div class="search-field-value position-relative">
+            <input 
+              type="date" 
+              id="check-in-date" 
+              class="form-control border-0 p-0 shadow-none bg-transparent" 
+              required
+            >
           </div>
+        </div>
+
 
           <!-- CHECK OUT -->
-          <div class="search-field" role="group" aria-label="Check-out date">
-            <div class="search-field-label">Check out</div>
-            <div class="search-field-value">
-              mm/dd/yyyy <i class="fa-regular fa-calendar" style="font-size:0.75rem;"></i>
-            </div>
+        <div class="search-field" role="group" aria-label="Check-out date">
+          <label for="check-out-date" class="search-field-label d-block fw-bold mb-1">Check out</label>
+          <div class="search-field-value position-relative">
+            <input 
+              type="date" 
+              id="check-out-date" 
+              class="form-control border-0 p-0 shadow-none bg-transparent" 
+              required
+            >
           </div>
-
+        </div>
           <!-- WHO -->
           <div class="search-field" role="group" aria-label="Number of guests">
             <div class="search-field-label">Who</div>
@@ -258,7 +269,7 @@
           <h2 class="section-title">Top destinations</h2>
         </div>
         <!-- Show all link -->
-        <a href="#" class="show-all-link">Show all</a>
+        <a href="explore.html" class="show-all-link">Show all</a>
       </div>
       <!-- /Section header -->
 
@@ -602,6 +613,7 @@
   ============================================================ -->
   
       <div class="container">
+        <hr class="divider">
 
         <section class="testimonials-section">
             <span class="tagline">TRUSTED BY MILLIONS</span>
