@@ -4,15 +4,405 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Page : AirBnB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./CSS/explore.css">
 </head>
 <body>
       <!-- ============================================================
        Explore Page
-       • Filter Method
+       • Filter method
        • Cards
        • Slide Animations on cards
-       • Secondary Sticky Nav Bar
-  ============================================================ -->
-  <h1>hi</h1>
+       • Secondary Sticky Nav Bar -->
+       <!-- Sticky Navigation & Categories -->
+    <div class="sticky-nav-container">
+        <div class="container">
+            <div class="categories-container">
+                <div class="category-item active">
+                    <i class="bi bi-globe"></i>
+                    <span>All</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-fire"></i>
+                    <span>Trending</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-sun"></i>
+                    <span>Beachfront</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Cabins</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-tree"></i>
+                    <span>Amazing views</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-moisture"></i>
+                    <span>Desert</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-palette"></i>
+                    <span>Treehouses</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-building"></i>
+                    <span>Mansions</span>
+                </div>
+                <div class="category-item">
+                    <i class="bi bi-snow"></i>
+                    <span>Skiing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <!-- Filter and Options Row -->
+        <div class="filter-row">
+            <div class="stays-count">8 stays found</div>
+            
+            <!-- Recommended Dropdown -->
+            <div class="dropdown">
+                <button class="dropdown-toggle-custom dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Recommended
+                </button>
+            </div>
+        </div>
+
+        <!-- 8 Cards Grid System -->
+        <div class="row" id="listings-grid">
+            <!-- Card 1 -->
+             <!-- <section class="contact-container" id="contact-section"> -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-1">
+                    <div class="guest-favorite-badge">Guest favorite</div>
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-1', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-1', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Santorini"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Santorini 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Santorini 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+        
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Santorini, Greece</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.97</span>
+                        </div>
+                        <div class="description-text">Entire villa<br>3 beds • 2 baths</div>
+                        <div class="price-row"><strong>$420</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+            <!-- </section> -->
+
+            <!-- Card 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-2">
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-2', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-2', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=600&q=80" alt="Sweden"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1482862549707-f63cb32c5fd9?auto=format&fit=crop&w=600&q=80" alt="Sweden 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Sweden 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Åre, Sweden</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.92</span>
+                        </div>
+                        <div class="description-text">Entire cabin<br>2 beds • 1 baths</div>
+                        <div class="price-row"><strong>$185</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-3">
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-3', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-3', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" alt="Bali 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80" alt="Bali 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Seminyak, Bali</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.89</span>
+                        </div>
+                        <div class="description-text">Entire villa<br>4 beds • 3 baths</div>
+                        <div class="price-row"><strong>$310</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-4">
+                    <div class="guest-favorite-badge">Guest favorite</div>
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-4', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-4', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" alt="NYC"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ca1ad?auto=format&fit=crop&w=600&q=80" alt="NYC 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="NYC 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>New York City, USA</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.95</span>
+                        </div>
+                        <div class="description-text">Entire penthouse<br>3 beds • 2 baths</div>
+                        <div class="price-row"><strong>$890</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-5">
+                    <div class="guest-favorite-badge">Guest favorite</div>
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-5', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-5', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Sedona"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Sedona 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=80" alt="Sedona 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Sedona, Arizona</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.96</span>
+                        </div>
+                        <div class="description-text">Entire dome<br>1 beds • 1 baths</div>
+                        <div class="price-row"><strong>$245</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-6">
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-6', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-6', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=600&q=80" alt="Tahoe"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Tahoe 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Tahoe 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Lake Tahoe, California</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.88</span>
+                        </div>
+                        <div class="description-text">Entire treehouse<br>2 beds • 1 baths</div>
+                        <div class="price-row"><strong>$195</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-7">
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-7', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-7', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="Kyoto"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1542044896530-05d85be9b11a?auto=format&fit=crop&w=600&q=80" alt="Kyoto 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=600&q=80" alt="Kyoto 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Kyoto, Japan</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.93</span>
+                        </div>
+                        <div class="description-text">Entire townhouse<br>2 beds • 1 baths</div>
+                        <div class="price-row"><strong>$155</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="listing-card" id="card-8">
+                    <button class="like-btn" onclick="toggleLike(this)"><i class="bi bi-heart-fill"></i></button>
+                    
+                    <div class="image-container">
+                        <button class="nav-arrow arrow-left" onclick="moveSlide('card-8', -1)"><i class="bi bi-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-right" onclick="moveSlide('card-8', 1)"><i class="bi bi-chevron-right"></i></button>
+                        
+                        <div class="carousel-track" data-index="0">
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Scotland"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80" alt="Scotland 2"></div>
+                            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Scotland 3"></div>
+                        </div>
+
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="title-row">
+                            <span>Inverness, Scotland</span>
+                            <span class="rating"><i class="bi bi-star-fill"></i> 4.91</span>
+                        </div>
+                        <div class="description-text">Private room in castle<br>1 beds • 1 baths</div>
+                        <div class="price-row"><strong>$275</strong> / night</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    defer>
+</script>
+    <script>
+        // Move Carousel Slide
+        function moveSlide(cardId, direction) {
+            event.stopPropagation(); // Prevents card clicks
+            const card = document.getElementById(cardId);
+            const track = card.querySelector('.carousel-track');
+            const dots = card.querySelectorAll('.dot');
+            
+            let currentIndex = parseInt(track.getAttribute('data-index'));
+            currentIndex += direction;
+            
+            // Boundary checks
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex > 2) currentIndex = 2;
+            
+            track.setAttribute('data-index', currentIndex);
+            
+            // Slide transition
+            const percentage = -(currentIndex * 33.333);
+            track.style.transform = `translateX(${percentage}%)`;
+            
+            // Active dot update
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Toggle Like / Heart Button
+        function toggleLike(element) {
+            event.stopPropagation();
+            element.classList.toggle('liked');
+        }
+
+        // Change Dropdown selection text
+        function changeDropdownText(text) {
+            document.getElementById('dropdownMenuButton').innerText = text;
+        }
+
+        // Handle category selection active state
+        const categories = document.querySelectorAll('.category-item');
+        categories.forEach(item => {
+            item.addEventListener('click', () => {
+                categories.forEach(c => c.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+  <!-- ============================================================ -->
 </body>
 </html>

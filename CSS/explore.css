@@ -1,0 +1,224 @@
+ /* Sticky Navbar & Categories */
+        .sticky-nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ebeebe;
+            padding-top: 20px;
+        }
+
+        .categories-container {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            gap: 32px;
+            padding-bottom: 12px;
+        }
+        .categories-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #717171;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+        .category-item i {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        .category-item:hover, .category-item.active {
+            color: #000000;
+            border-bottom-color: #000000;
+        }
+
+        /* Filter Row */
+        .filter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .stays-count {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Card Styles */
+        .listing-card {
+            border: none;
+            background: none;
+            margin-bottom: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Image Wrapper & Zoom Effect */
+        .image-container {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 20 / 19;
+        }
+        .carousel-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+        .carousel-slide {
+            width: 33.333%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        /* Zoom on hover */
+        .listing-card:hover .carousel-slide img {
+            transform: scale(1.06);
+        }
+
+        /* Hover Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222222;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.2s ease, transform 0.1s ease;
+            z-index: 10;
+        }
+        .nav-arrow:hover {
+            transform: translateY(-50%) scale(1.05);
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .listing-card:hover .nav-arrow {
+            opacity: 1;
+        }
+        .arrow-left { left: 12px; }
+        .arrow-right { right: 12px; }
+
+        /* Carousel Indicators / Dots */
+        .carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        .dot.active {
+            background-color: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* Guest Favorite Badge */
+        .guest-favorite-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #ffffff;
+            color: #222222;
+            padding: 4px 8px;
+            border-radius: 14px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* Like Heart Button */
+        .like-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.5);
+            -webkit-text-stroke: 2px white;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        .like-btn:active {
+            transform: scale(0.85);
+        }
+        .like-btn.liked {
+            color: #ff385c;
+            -webkit-text-stroke: 0;
+        }
+
+        /* Card Details Text */
+        .card-details {
+            padding-top: 12px;
+            font-size: 15px;
+            line-height: 19px;
+        }
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+        .rating {
+            font-weight: 400;
+        }
+        .description-text {
+            color: #717171;
+            margin-top: 2px;
+        }
+        .price-row {
+            margin-top: 6px;
+            font-weight: 400;
+        }
+        .price-row strong {
+            font-weight: 600;
+        }
+
+        /* Dropdown custom style */
+        .dropdown-toggle-custom {
+            border: 1px solid #dddddd;
+            background-color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dropdown-toggle-custom:hover {
+            border-color: #000000;
+        }
