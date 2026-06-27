@@ -36,8 +36,9 @@
     <div class="container-fluid px-4 px-md-5 d-flex align-items-center justify-content-between">
 
       <!-- Logo -->
-      <a href="#" class="nav-logo" aria-label="Airbnb home">
-        <i class="fa-solid fa-location-dot"></i>airbnb
+      <a href="index.html" class="nav-logo d-inline-flex align-items-center gap-2 text-decoration-none fw-bold" aria-label="Airbnb home" style="color: #FF385C; font-size: 1.4rem; letter-spacing: -0.5px;">
+         <i class="fa-brands fa-airbnb" style="font-size: 2rem;"></i>
+           <span>airbnb</span>
       </a>
 
       <!-- Right controls -->
@@ -66,7 +67,7 @@
             <a href="#" role="menuitem">Log in</a>
             <div class="dropdown-divider" role="separator"></div>
             <a href="#" role="menuitem">Airbnb your home</a>
-            <a href="explore.html" role="menuitem" class="active">Explore</a>
+            <a href="explore.html" role="menuitem" >Explore</a>
             <a href="trip.html" role="menuitem">My trips</a>
             <a href="#" role="menuitem">Wishlist</a>
             <div class="dropdown-divider" role="separator"></div>
@@ -177,7 +178,7 @@
       <!-- /Search Card -->
 
       <!-- ---- Category Filter Pills ---- -->
-      <div class="hero-pills" role="list" aria-label="Filter by type">
+      <div class="hero-pills mb-5" role="list" aria-label="Filter by type">
         <button class="hero-pill" role="listitem">
           <i class="fa-solid fa-umbrella-beach"></i> Beachfront
         </button>
@@ -215,9 +216,10 @@
        • Four key numbers displayed in a horizontal row
        • Pink numbers, grey labels, vertical dividers between items
        • No animations (as per PDF note)
+       • Fixed to standard container for perfect grid alignment
   ============================================================ -->
   <section class="stat-section" aria-label="Key statistics">
-    <div class="container-fluid px-4 px-md-5">
+    <div class="container">
       <div class="row text-center">
 
         <!-- Stat 1: Active listings -->
@@ -257,8 +259,12 @@
        • Cards have image + gradient overlay + city name/meta
        • Hover: image scales up slightly
   ============================================================ -->
+ <!-- ============================================================
+       TOP DESTINATIONS SECTION
+       • Fixed to standard container for perfect grid alignment
+  ============================================================ -->
   <section class="destinations-section" aria-label="Top destinations">
-    <div class="container-fluid px-4 px-md-5">
+    <div class="container">
 
       <!-- Section header row -->
       <div class="d-flex align-items-end justify-content-between mb-4">
@@ -274,11 +280,6 @@
       <!-- /Section header -->
 
       <!-- ---- Destination Grid ---- -->
-      <!--
-        Layout (desktop): two rows of three cards
-        Col widths: 3 | 3 | 6  (Bootstrap 12-grid)
-        Each image card has a text overlay (city name + country · homes)
-      -->
       <div class="row g-3">
 
         <!-- Row 1 -->
