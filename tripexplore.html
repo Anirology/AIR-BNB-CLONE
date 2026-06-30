@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beachfront Bali Retreat - Airbnb Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tripexplore.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top py-3">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-airbnb text-danger fa-2x align-middle me-1"></i>
+                <span class="text-danger fw-bold fs-4 d-none d-lg-inline-block align-middle">airbnb</span>
+            </a>
+            
+            <div class="shadow-sm border rounded-pill px-3 py-2 d-none d-sm-flex align-items-center mx-auto search-bar">
+                <button class="btn btn-sm fw-bold border-0 bg-transparent">Anywhere</button>
+                <div class="vr mx-2"></div>
+                <button class="btn btn-sm fw-bold border-0 bg-transparent">Any week</button>
+                
+                <div class="vr mx-2"></div>
+                <button class="btn btn-sm text-muted border-0 bg-transparent">Add guests</button>
+                
+
+<!-- Perfect Circle Search Button -->
+<button class="btn btn-danger rounded-circle search-btn d-flex align-items-center justify-content-center">
+    <i class="bi bi-search text-white"></i>
+</button>
+
+
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="text-dark fw-bold text-decoration-none btn btn-light rounded-pill btn-sm d-none d-md-inline-block py-2 px-3">Airbnb your home</a>
+                <button class="btn btn-light rounded-circle btn-sm d-none d-md-inline-block"><i class="bi bi-globe"></i></button>
+               
+<!-- Profile Dropdown Button (image_1367fb.png) -->
+<div class="dropdown">
+    <!-- Reduced padding to px-2 py-1 and gap to gap-2 for a more compact container size -->
+    <div class="border rounded-pill px-2 py-1 d-flex align-items-center gap-2 bg-white shadow-sm cursor-pointer" 
+         id="profileDropdown" 
+         data-bs-toggle="dropdown" 
+         aria-expanded="false">
+        
+        <!-- Hamburger Menu Icon - Reduced to fs-5 -->
+        <i class="bi bi-list fs-5 text-dark"></i>
+        
+        <!-- Profile Avatar Icon - Reduced to fs-4 -->
+        <i class="bi bi-person-circle fs-4 text-secondary"></i>
+    </div>
+
+    <!-- Dropdown Menu Options (Appears on click) -->
+    <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2 py-2 text-start fs-6" aria-labelledby="profileDropdown" style="min-width: 240px;">
+        <li><a class="dropdown-menu-item dropdown-item fw-bold text-dark py-2" href="#">Sign up</a></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="#">Log in</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="trip.html">My trips</a></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="explore.html">Explore</a></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="index.html">Home</a></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="#">Host an experience</a></li>
+        <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="#">Help Center</a></li>
+         <li><a class="dropdown-menu-item dropdown-item text-secondary py-2" href="tripexplore.html">Trip explore</a></li>
+
+    </ul>
+</div>
+
+
+
+
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4 px-4">
+        
+        <section class="mb-4">
+            <h1 class="h3 fw-bold mb-2">Beachfront Bali Retreat</h1>
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+                <div>
+                    <span class="text-dark fw-bold"><i class="bi bi-star-fill text-dark me-1"></i> 4.89</span> 
+                    <span class="text-decoration-underline ms-1">(412 reviews)</span>
+                    <span class="mx-2">•</span>
+                    <span><i class="bi bi-patch-check-fill text-danger me-1"></i>Superhost</span>
+                    <span class="mx-2">•</span>
+                    <span class="text-decoration-underline fw-bold">Seminyak, Bali</span>
+                </div>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-sm btn-light border-0 bg-transparent text-decoration-underline fw-bold"><i class="bi bi-box-arrow-up me-2"></i>Share</button>
+                    <button class="btn btn-sm btn-light border-0 bg-transparent text-decoration-underline fw-bold"><i class="bi bi-heart me-2"></i>Saved</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5 position-relative">
+            <div class="row g-2 rounded-4 overflow-hidden">
+                <div class="col-md-6 col-12">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali Retreat Main" class="img-fluid w-100 gallery-img-main object-cover">
+                </div>
+                <div class="col-md-6 d-none d-md-block">
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Beach View" class="img-fluid w-100 gallery-img-sub object-cover">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=400&q=80" alt="Sunset View" class="img-fluid w-100 gallery-img-sub object-cover">
+                        </div>
+                        <div class="col-12">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1LVzZkrK1B3A52eCqv1jfOEot27UgxIElef-wXca9gxsnAwrR5FwRkFtL&s=10" alt="Villa Exterior" class="img-fluid w-100 gallery-img-long object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-light btn-sm border border-dark rounded-3 position-absolute bg-white px-3 py-1.5 font-weight-bold" style="bottom: 24px; right: 24px;">
+                <i class="bi bi-grid-3x3-gap-fill me-2"></i>Show all photos
+            </button>
+        </section>
+
+        <div class="row g-5">
+            <div class="col-lg-7 col-12">
+                
+                <div class="d-flex justify-content-between align-items-center pb-4 border-bottom">
+                    <div>
+                        <h2 class="h4 fw-bold mb-1">Entire villa hosted by Wayan</h2>
+                        <p class="text-muted mb-0">8 guests · 4 bedrooms · 3 baths</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Host Profile" class="rounded-circle" width="56" height="56" style="object-fit: cover;">
+                </div>
+
+                <div class="py-4 border-bottom d-flex flex-column gap-4">
+                    <div class="d-flex gap-3">
+                        <i class="bi bi-patch-check fs-3 text-dark mt-1"></i>
+                        <div>
+                            <h4 class="h6 fw-bold mb-1">Wayan is a Superhost</h4>
+                            <p class="text-muted small mb-0">Wayan has been hosting for 7 years and is committed to exceptional stays.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <i class="bi bi-geo-alt fs-3 text-dark mt-1"></i>
+                        <div>
+                            <h4 class="h6 fw-bold mb-1">Great location</h4>
+                            <p class="text-muted small mb-0">95% of recent guests gave the location a 5-star rating.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <i class="bi bi-clock-history fs-3 text-dark mt-1"></i>
+                        <div>
+                            <h4 class="h6 fw-bold mb-1">Free cancellation for 48 hours</h4>
+                            <p class="text-muted small mb-0">Get a full refund if you change your mind within 48 hours of booking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-4 border-bottom">
+                    <p class="text-dark leading-relaxed">
+                        Step directly onto Seminyak Beach from your private tropical paradise. This traditional Balinese villa blends ancient architecture with modern luxury — open-air living pavilions, a 20-meter lap pool fringed with frangipani trees, and dedicated staff to make every moment magical.
+                    </p>
+                    <a href="#" class="text-dark fw-bold text-decoration-underline d-inline-flex align-items-center gap-1 small">Show more <i class="bi bi-chevron-right small"></i></a>
+                </div>
+
+                <div class="py-4 border-bottom">
+                    <h3 class="h5 fw-bold mb-4">What this place offers</h3>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-wifi fs-4"></i> Wifi</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-water fs-4"></i> Pool</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-tsunami fs-4"></i> Beach access</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="fa-solid fa-kitchen-set fs-5"></i> Kitchen</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-wind fs-4"></i> Air conditioning</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-stars fs-4"></i> Daily housekeeping</div>
+                        <div class="col-sm-6 col-12 d-flex align-items-center gap-3 mb-2"><i class="bi bi-person-workspace fs-4"></i> Private chef</div>
+                    </div>
+                    <button class="btn btn-outline-dark rounded-3 px-4 py-2.5 fw-bold btn-sm">Show all 7 amenities</button>
+                </div>
+
+                <div class="py-4">
+                    <h3 class="h4 fw-bold mb-4"><i class="bi bi-star-fill text-dark me-2"></i>4.89 · 412 reviews</h3>
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-12">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-cover" width="40" height="40" alt="Reviewer">
+                                <div>
+                                    <h5 class="h6 fw-bold mb-0">Sarah M.</h5>
+                                    <span class="text-muted small">May 2026</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small">Extraordinary! The views alone were worth every penny. Host was responsive, space was immaculate.</p>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-cover" width="40" height="40" alt="Reviewer">
+                                <div>
+                                    <h5 class="h6 fw-bold mb-0">Daniel R.</h5>
+                                    <span class="text-muted small">April 2026</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small">Absolutely stunning property. Every detail had been thought through. Will definitely return.</p>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-cover" width="40" height="40" alt="Reviewer">
+                                <div>
+                                    <h5 class="h6 fw-bold mb-0">Aiko T.</h5>
+                                    <span class="text-muted small">March 2026</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small">One of the best travel experiences of my life. The location is magical and the host is a legend.</p>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-cover" width="40" height="40" alt="Reviewer">
+                                <div>
+                                    <h5 class="h6 fw-bold mb-0">Carlos B.</h5>
+                                    <span class="text-muted small">February 2026</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small">Woke up to the most beautiful sunrise every morning. Can't recommend highly enough.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 col-12 class-sticky-sidebar">
+                <div class="card border rounded-4 p-4 shadow-lg sticky-md-top" style="top: 100px; z-index: 10;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <span class="fs-4 fw-bold">$310</span> <span class="text-muted">/ night</span>
+                        </div>
+                        <div class="small">
+                            <span class="fw-bold"><i class="bi bi-star-fill text-dark"></i> 4.89</span>
+                            <span class="text-muted">(412)</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-3 mb-3 overflow-hidden">
+                        <div class="row g-0 border-bottom">
+                            <div class="col-6 border-end p-2.5">
+                                <label class="text-uppercase fw-bold text-muted small-label d-block">Check-in</label>
+                                <input type="text" class="form-control border-0 p-0 text-muted bg-transparent small" placeholder="mm/dd/yyyy">
+                            </div>
+                            <div class="col-6 p-2.5">
+                                <label class="text-uppercase fw-bold text-muted small-label d-block">Checkout</label>
+                                <input type="text" class="form-control border-0 p-0 text-muted bg-transparent small" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                        <div class="p-2.5 position-relative">
+                            <label class="text-uppercase fw-bold text-muted small-label d-block">Guests</label>
+                            <select class="form-select border-0 p-0 bg-transparent text-dark small shadow-none">
+                                <option>1 guest</option>
+                                <option>2 guests</option>
+                                <option>4 guests</option>
+                                <option>8 guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger w-100 py-3 fw-bold rounded-3 gradient-btn mb-3">Check availability</button>
+                    <p class="text-center text-muted small mb-4">You won't be charged yet</p>
+
+                    <div class="p-3 bg-light rounded-3 border-0">
+                        <p class="small text-dark mb-0 leading-relaxed">
+                            <strong class="text-danger"><i class="bi bi-shield-check me-1"></i>AirCover</strong> — every stay comes with free comprehensive protection including trip cancellation, listing accuracy, and 24/7 safety support.
+                        </p>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-muted text-decoration-underline small">Report this listing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
