@@ -192,7 +192,9 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), 
+              url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your actual image path if different */
+      
       background-size: cover;
       background-position: center;
       /* Slight dark overlay to keep text readable */
@@ -346,6 +348,7 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
+      margin-bottom: 80px !important;
     }
 
     .hero-pill {

@@ -3,242 +3,207 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- viewport: Critical for responsive design. It scales the page to match the device's native screen width. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airbnb – Find unique stays</title>
 
   <!-- ============================================================
        EXTERNAL DEPENDENCIES
-       • Bootstrap 5.3 – Grid, utilities, components
-       • Font Awesome 6 – Icons (search, globe, bars, user, etc.)
-       • Google Fonts – Playfair Display (display) + Inter (body)
+       • Bootstrap 5.3 – Core component layout utilities & styles
+       • Font Awesome 6 – Standard icon vectors
+       • Google Fonts – Typography layout library
   ============================================================ -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
-  <!-- Custom CSS -->
-    <link rel="stylesheet" href="CSS/utilities.css">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/responsive.css">
-    <link rel="stylesheet" href="CSS/HIW.css">
-    <link rel="stylesheet" href="./CSS/footer.css">
-    <link rel="stylesheet" href="./CSS/guest.css">
-    <link rel="stylesheet" href="CSS/CTA.css">
+  <!-- Custom Stylesheets (Modular layout layers) -->
+  <link rel="stylesheet" href="CSS/utilities.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/responsive.css">
+  <link rel="stylesheet" href="CSS/HIW.css">
+  <link rel="stylesheet" href="./CSS/footer.css">
+  <link rel="stylesheet" href="./CSS/guest.css">
+  <link rel="stylesheet" href="CSS/CTA.css">
 </head>
+
 <body>
 
   <!-- ============================================================
        NAVBAR
-       • Sticky top bar: logo | host link | globe | pill (menu+avatar)
-       • Profile dropdown revealed on hover (pure CSS)
+       • airbnb-nav: Global custom tracking class for header layout.
+       • d-flex: Converts the container element into a Flexbox context.
+       • align-items-center: Aligns all child nodes vertically in the center.
+       • aria-label: Provides context to screen readers for semantic accessibility.
   ============================================================ -->
   <nav class="airbnb-nav d-flex align-items-center" aria-label="Main navigation">
+    
+    <!-- 
+       • container-fluid: Spans 100% width across all viewport sizes.
+       • px-4 px-md-5: Left/Right padding defaults to level 4 (1.5rem), scaling up to level 5 (3rem) on Medium devices (≥768px).
+       • justify-content-between: Pushes the items to opposite sides (Logo left, controls right).
+    -->
     <div class="container-fluid px-4 px-md-5 d-flex align-items-center justify-content-between">
 
-      <!-- Logo -->
-      <a href="#" class="nav-logo" aria-label="Airbnb home">
-        <i class="fa-solid fa-location-dot"></i>airbnb
+      <!-- 
+         • d-inline-flex: Creates an inline flex container so layout takes up only its content width.
+         • gap-2: Adds a 0.5rem automatic space margin between the icon and text.
+         • text-decoration-none: Drops the standard anchor underline style.
+         • fw-bold: Changes font-weight configuration to bold (700 value).
+      -->
+      <a href="index.html" class="nav-logo d-inline-flex align-items-center gap-2 text-decoration-none fw-bold" aria-label="Airbnb home" style="color: #FF385C; font-size: 1.4rem; letter-spacing: -0.5px;">
+         <i class="fa-brands fa-airbnb" style="font-size: 2rem;"></i>
+         <span>airbnb</span>
       </a>
 
-      <!-- Right controls -->
+      <!-- gap-3: Sets a uniform 1rem separation layout between the links/buttons inside this box -->
       <div class="d-flex align-items-center gap-3">
 
-        <!-- "Airbnb your home" – hidden on mobile via CSS -->
+        <!-- Custom class for host link styling rules -->
         <a href="#" class="nav-host-link">Airbnb your home</a>
 
-        <!-- Globe / language -->
+        <!-- Custom language selector button framework -->
         <button class="nav-icon-btn" aria-label="Choose language">
           <i class="fa-solid fa-globe"></i>
         </button>
 
-        <!-- Profile pill with dropdown -->
+        <!-- 
+           • tabindex="0": Allows non-interactive tags to receive keyboard focus states.
+           • aria-haspopup="true": Informs accessibility systems that this button controls a sub-menu layout.
+        -->
         <div class="nav-pill" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Profile and menu">
-          <!-- Hamburger icon -->
           <i class="fa-solid fa-bars" style="font-size:0.9rem; color:var(--brand-dark);"></i>
-          <!-- Avatar circle -->
           <div class="nav-avatar">
             <i class="fa-solid fa-user" style="font-size:0.85rem;"></i>
           </div>
 
-          <!-- Dropdown menu (pure-CSS show on hover) -->
+          <!-- dropdown-divider / role="menuitem": Classic menu structure accessibility architecture -->
           <div class="profile-dropdown" role="menu">
             <a href="#" role="menuitem">Sign up</a>
             <a href="#" role="menuitem">Log in</a>
             <div class="dropdown-divider" role="separator"></div>
             <a href="#" role="menuitem">Airbnb your home</a>
-            <a href="explore.html" role="menuitem" class="active">Explore</a>
+            <a href="explore.html" role="menuitem" >Explore</a>
             <a href="trip.html" role="menuitem">My trips</a>
             <a href="#" role="menuitem">Wishlist</a>
             <div class="dropdown-divider" role="separator"></div>
             <a href="#" role="menuitem">Help centre</a>
           </div>
         </div>
-        <!-- /Profile pill -->
 
       </div>
-      <!-- /Right controls -->
-
     </div>
   </nav>
-  <!-- /NAVBAR -->
 
 
   <!-- ============================================================
        HERO SECTION
-       • Full-viewport background image (lake + mountains)
-       • Serif headline with gold "wander" accent
-       • Search card with Stays / Experiences tabs
-       • Category filter pills
-       • Bouncing "Explore below" indicator
+       • Custom full-viewport immersive landscape layout engine.
   ============================================================ -->
   <section class="hero-section" aria-label="Hero">
-
-    <!-- Background image layer -->
     <div class="hero-bg" role="img" aria-label="Scenic lake surrounded by mountains"></div>
 
-    <!-- Centred headline + search card -->
     <div class="hero-content">
-
-      <!-- Eyebrow label -->
       <p class="hero-eyebrow">Over 7 million places to stay</p>
-
-      <!-- Main headline – serif + gold accent word -->
-      <h1 class="hero-headline">
-        Not all those who<br>
-        <span class="accent">wander</span><br>
-        are lost.
-      </h1>
-
-      <!-- Subheadline -->
+      <h1 class="hero-headline">Not all those who<br><span class="accent">wander</span><br>are lost.</h1>
       <p class="hero-subtext">Find unique stays with local hosts in 220+ countries and regions.</p>
 
-      <!-- ---- Search Card ---- -->
+      <!-- ---- Search Card Components ---- -->
       <div class="search-card" role="search" aria-label="Search for stays">
-
-        <!-- Tab row -->
         <div class="search-tabs" role="tablist">
           <button class="search-tab active" role="tab" aria-selected="true">Stays</button>
           <button class="search-tab" role="tab" aria-selected="false">Experiences</button>
           <button class="search-tab" role="tab" aria-selected="false">Online Experiences</button>
         </div>
 
-        <!-- Input fields + search button -->
         <div class="search-inputs">
-
-          <!-- WHERE -->
           <div class="search-field" role="group" aria-label="Where to search">
             <div class="search-field-label">Where</div>
             <div class="search-field-value">Search destinations</div>
           </div>
 
-          <!-- CHECK IN -->
-        <div class="search-field" role="group" aria-label="Check-in date">
-          <label for="check-in-date" class="search-field-label d-block fw-bold mb-1">Check in</label>
-          <div class="search-field-value position-relative">
-            <input 
-              type="date" 
-              id="check-in-date" 
-              class="form-control border-0 p-0 shadow-none bg-transparent" 
-              required
-            >
+          <!-- 
+             • d-block: Forces the label to act as a block element, taking its own line layout.
+             • mb-1: Adds a bottom margin baseline buffer of 0.25rem.
+             • position-relative: Locks inner absolute tracking bounds.
+             • form-control: Standardized Bootstrap input wrapper layer.
+             • border-0 / p-0 / shadow-none / bg-transparent: strips away default input styling defaults.
+          -->
+          <div class="search-field" role="group" aria-label="Check-in date">
+            <label for="check-in-date" class="search-field-label d-block fw-bold mb-1">Check in</label>
+            <div class="search-field-value position-relative">
+              <input type="date" id="check-in-date" class="form-control border-0 p-0 shadow-none bg-transparent" required>
+            </div>
           </div>
-        </div>
 
-
-          <!-- CHECK OUT -->
-        <div class="search-field" role="group" aria-label="Check-out date">
-          <label for="check-out-date" class="search-field-label d-block fw-bold mb-1">Check out</label>
-          <div class="search-field-value position-relative">
-            <input 
-              type="date" 
-              id="check-out-date" 
-              class="form-control border-0 p-0 shadow-none bg-transparent" 
-              required
-            >
+          <div class="search-field" role="group" aria-label="Check-out date">
+            <label for="check-out-date" class="search-field-label d-block fw-bold mb-1">Check out</label>
+            <div class="search-field-value position-relative">
+              <input type="date" id="check-out-date" class="form-control border-0 p-0 shadow-none bg-transparent" required>
+            </div>
           </div>
-        </div>
-          <!-- WHO -->
+
           <div class="search-field" role="group" aria-label="Number of guests">
             <div class="search-field-label">Who</div>
             <div class="search-field-value">1 guest</div>
           </div>
 
-          <!-- Search button -->
           <div class="search-btn-wrapper">
             <button class="search-btn" aria-label="Search">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
-
         </div>
-        <!-- /Input fields -->
-
       </div>
-      <!-- /Search Card -->
 
-      <!-- ---- Category Filter Pills ---- -->
-      <div class="hero-pills" role="list" aria-label="Filter by type">
-        <button class="hero-pill" role="listitem">
-          <i class="fa-solid fa-umbrella-beach"></i> Beachfront
-        </button>
-        <button class="hero-pill" role="listitem">
-          <i class="fa-solid fa-mountain"></i> Mountain views
-        </button>
-        <button class="hero-pill" role="listitem">
-          <i class="fa-solid fa-city"></i> City break
-        </button>
-        <button class="hero-pill" role="listitem">
-          <i class="fa-solid fa-leaf"></i> Nature retreat
-        </button>
-        <button class="hero-pill" role="listitem">
-          <i class="fa-solid fa-landmark"></i> Historic stays
-        </button>
+      <!-- mb-5: Drops a 3rem layout margin separator layout down below the filters pill system -->
+      <div class="hero-pills mb-5" role="list" aria-label="Filter by type">
+        <button class="hero-pill" role="listitem"><i class="fa-solid fa-umbrella-beach"></i> Beachfront</button>
+        <button class="hero-pill" role="listitem"><i class="fa-solid fa-mountain"></i> Mountain views</button>
+        <button class="hero-pill" role="listitem"><i class="fa-solid fa-city"></i> City break</button>
+        <button class="hero-pill" role="listitem"><i class="fa-solid fa-leaf"></i> Nature retreat</button>
+        <button class="hero-pill" role="listitem"><i class="fa-solid fa-landmark"></i> Historic stays</button>
       </div>
-      <!-- /Category Filter Pills -->
-
     </div>
-    <!-- /hero-content -->
 
-    <!-- ---- Bouncing "Explore below" indicator ---- -->
+    <!-- aria-hidden="true": Skips interactive element scanning on visual interface cues -->
     <div class="explore-below" aria-hidden="true">
       <span>Explore below</span>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
-    <!-- /Explore below -->
-
   </section>
-  <!-- /HERO SECTION -->
 
 
   <!-- ============================================================
        STAT SECTION
-       • Four key numbers displayed in a horizontal row
-       • Pink numbers, grey labels, vertical dividers between items
-       • No animations (as per PDF note)
+       • container: Sets fixed layout width scaling points across breakpoint targets.
+       • row: Builds internal Flexbox margin tracks to host column systems cleanly.
+       • text-center: Aligns text inside all internal structures to center bounds.
   ============================================================ -->
   <section class="stat-section" aria-label="Key statistics">
-    <div class="container-fluid px-4 px-md-5">
+    <div class="container">
       <div class="row text-center">
 
-        <!-- Stat 1: Active listings -->
+        <!-- 
+           • col-6: Takes half the horizontal matrix grid width on mobile devices by default.
+           • col-md-3: Takes 3 out of 12 available grid blocks on Medium screens and higher (≥768px).
+           • py-2: Applies 0.5rem top and bottom safety vertical padding layers.
+        -->
         <div class="col-6 col-md-3 stat-item py-2">
           <div class="stat-number">7M+</div>
           <div class="stat-label">Active listings worldwide</div>
         </div>
 
-        <!-- Stat 2: Countries & regions -->
         <div class="col-6 col-md-3 stat-item py-2">
           <div class="stat-number">220+</div>
           <div class="stat-label">Countries &amp; regions</div>
         </div>
 
-        <!-- Stat 3: Host community members -->
         <div class="col-6 col-md-3 stat-item py-2">
           <div class="stat-number">4M+</div>
           <div class="stat-label">Host community members</div>
         </div>
 
-        <!-- Stat 4: Guest arrivals -->
         <div class="col-6 col-md-3 stat-item py-2">
           <div class="stat-number">1.5B</div>
           <div class="stat-label">Guest arrivals since 2008</div>
@@ -247,50 +212,38 @@
       </div>
     </div>
   </section>
-  <!-- /STAT SECTION -->
 
 
   <!-- ============================================================
        TOP DESTINATIONS SECTION
-       • Pink eyebrow, bold headline, "Show all" link
-       • 2×3 mosaic grid: two tall cards + one wide card per row
-       • Cards have image + gradient overlay + city name/meta
-       • Hover: image scales up slightly
   ============================================================ -->
   <section class="destinations-section" aria-label="Top destinations">
-    <div class="container-fluid px-4 px-md-5">
+    <div class="container">
 
-      <!-- Section header row -->
+      <!-- 
+         • align-items-end: Baseline locks the bottom of text blocks and action items together.
+         • mb-4: Pushes structural card content down by 1.5rem via layout margin.
+      -->
       <div class="d-flex align-items-end justify-content-between mb-4">
         <div>
-          <!-- Pink eyebrow -->
           <p class="section-eyebrow">Explore the world</p>
-          <!-- Bold headline -->
           <h2 class="section-title">Top destinations</h2>
         </div>
-        <!-- Show all link -->
         <a href="explore.html" class="show-all-link">Show all</a>
       </div>
-      <!-- /Section header -->
 
-      <!-- ---- Destination Grid ---- -->
-      <!--
-        Layout (desktop): two rows of three cards
-        Col widths: 3 | 3 | 6  (Bootstrap 12-grid)
-        Each image card has a text overlay (city name + country · homes)
-      -->
+      <!-- g-3: Creates a layout gap space uniform calculation of 1rem wide between cards -->
       <div class="row g-3">
 
-        <!-- Row 1 -->
-
-        <!-- Card 1 – Bali (small left) -->
+        <!-- 
+           • col-12: Takes full card track row width on extra-small views.
+           • col-sm-6: Scales side-by-side split configurations on Small targets (≥576px).
+           • col-md-4: Locks three card layouts per tier on screens (≥768px).
+        -->
         <div class="col-12 col-sm-6 col-md-4">
           <article class="dest-card dest-card-tall" aria-label="Bali, Indonesia">
-            <img
-              src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80"
-              alt="Bali temple at sunrise"
-              loading="lazy"
-            />
+            <!-- loading="lazy": Postpones offscreen asset loading optimization patterns -->
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Bali temple at sunrise" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">Bali</div>
               <div class="dest-card-meta">Indonesia · 3,400+ homes</div>
@@ -298,14 +251,9 @@
           </article>
         </div>
 
-        <!-- Card 2 – Bali (small centre) -->
         <div class="col-12 col-sm-6 col-md-4">
           <article class="dest-card dest-card-tall" aria-label="Bali, Indonesia (second view)">
-            <img
-              src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=600&q=80"
-              alt="Bali rice terraces"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=600&q=80" alt="Bali rice terraces" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">Bali</div>
               <div class="dest-card-meta">Indonesia · 3,400+ homes</div>
@@ -313,14 +261,9 @@
           </article>
         </div>
 
-        <!-- Card 3 – Paris (wide right) -->
         <div class="col-12 col-md-4">
           <article class="dest-card dest-card-tall" aria-label="Paris, France">
-            <img
-              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80"
-              alt="Eiffel Tower at dusk"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" alt="Eiffel Tower at dusk" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">Paris</div>
               <div class="dest-card-meta">France · 8,200+ homes</div>
@@ -328,16 +271,9 @@
           </article>
         </div>
 
-        <!-- Row 2 -->
-
-        <!-- Card 4 – Kyoto (small left) -->
         <div class="col-12 col-sm-6 col-md-4">
           <article class="dest-card dest-card-short" aria-label="Kyoto, Japan">
-            <img
-              src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80"
-              alt="Kyoto neon street at night"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Kyoto neon street at night" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">Kyoto</div>
               <div class="dest-card-meta">Japan · 950+ homes</div>
@@ -345,14 +281,9 @@
           </article>
         </div>
 
-        <!-- Card 5 – Kyoto (small centre) -->
         <div class="col-12 col-sm-6 col-md-4">
           <article class="dest-card dest-card-short" aria-label="Kyoto, Japan (second view)">
-            <img
-              src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80"
-              alt="Kyoto temple path"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Kyoto temple path" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">Kyoto</div>
               <div class="dest-card-meta">Japan · 950+ homes</div>
@@ -360,14 +291,9 @@
           </article>
         </div>
 
-        <!-- Card 6 – New York (wide right) -->
         <div class="col-12 col-md-4">
           <article class="dest-card dest-card-short" aria-label="New York, United States">
-            <img
-              src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=800&q=80"
-              alt="New York City skyline"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=800&q=80" alt="New York City skyline" loading="lazy" />
             <div class="dest-card-text">
               <div class="dest-card-city">New York</div>
               <div class="dest-card-meta">United States · 12,000+ homes</div>
@@ -376,16 +302,14 @@
         </div>
 
       </div>
-      <!-- /Destination Grid -->
-
     </div>
   </section>
-  <!-- /TOP DESTINATIONS SECTION -->
-    <!-- ============================================================
-       Dilakshan's Guest cards section start
+
+
+  <!-- ============================================================
+       GUEST FAVORITES SECTION
   ============================================================ -->
-<div class="container">
-    <!-- Header Section -->
+  <div class="container">
     <div class="section-header">
         <div>
             <div class="subtitle">Handpicked for you</div>
@@ -397,178 +321,206 @@
         </div>
     </div>
 
-    <!-- Cards Grid -->
     <div class="row">
-        <!-- Card 1 -->
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-            <div class="card-custom" id="card-1">
-                <div class="image-container">
-                    <div class="badge-favorite">Guest favorite</div>
-                    <button class="like-btn" onclick="toggleLike(this, event)">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    
-                    <div class="nav-arrow prev" onclick="moveSlide('card-1', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="nav-arrow next" onclick="moveSlide('card-1', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
-                    
-                    <div class="carousel-inner-custom" data-index="0">
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Santorini 1"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Santorini 2"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Santorini 3"></div>
-                    </div>
-
-                    <div class="dots-container">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </div>
-                <div class="card-details">
-                    <div class="location-rating">
-                        <span>Santorini, Greece</span>
-                        <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.97</span>
-                    </div>
-                    <div class="type-details">Entire villa</div>
-                    <div class="type-details">3 beds • 2 baths</div>
-                    <div class="price-info">$420 <span>/ night</span></div>
-                </div>
+      <!-- 
+         • col-sm-12: Full content stack width configuration below mobile display floors.
+         • col-md-6: Two cards per row format baseline for standard screens (≥768px).
+         • col-lg-4: Transitions cleanly down into three layout systems on large environments (≥992px).
+         • col-xl-3: Locks 4 clean cards across widescreen desktop environments (≥1200px).
+      -->
+      
+      <!-- Card 1 -->
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <div class="card-custom" id="card-1">
+          <div class="image-container">
+            <div class="badge-favorite">Guest favorite</div>
+            <button class="like-btn" onclick="toggleLike(this, event)">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+            
+            <div class="nav-arrow prev" onclick="moveSlide('card-1', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="nav-arrow next" onclick="moveSlide('card-1', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="carousel-inner-custom" data-index="0">
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Santorini 1"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Santorini 2"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Santorini 3"></div>
             </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-            <div class="card-custom" id="card-2">
-                <div class="image-container">
-                    <button class="like-btn" onclick="toggleLike(this, event)">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    
-                    <div class="nav-arrow prev" onclick="moveSlide('card-2', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="nav-arrow next" onclick="moveSlide('card-2', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
-                    
-                    <div class="carousel-inner-custom" data-index="0">
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=600&q=80" alt="Cabin 1"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=600&q=80" alt="Cabin 2"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80" alt="Cabin 3"></div>
-                    </div>
-
-                    <div class="dots-container">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </div>
-                <div class="card-details">
-                    <div class="location-rating">
-                        <span>Åre, Sweden</span>
-                        <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.92</span>
-                    </div>
-                    <div class="type-details">Entire cabin</div>
-                    <div class="type-details">2 beds • 1 bath</div>
-                    <div class="price-info">$185 <span>/ night</span></div>
-                </div>
+            <div class="dots-container">
+              <div class="dot active"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
             </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-            <div class="card-custom" id="card-3">
-                <div class="image-container">
-                    <button class="like-btn" onclick="toggleLike(this, event)">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    
-                    <div class="nav-arrow prev" onclick="moveSlide('card-3', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="nav-arrow next" onclick="moveSlide('card-3', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
-                    
-                    <div class="carousel-inner-custom" data-index="0">
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali 1"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Bali 2"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=600&q=80" alt="Bali 3"></div>
-                    </div>
-
-                    <div class="dots-container">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </div>
-                <div class="card-details">
-                    <div class="location-rating">
-                        <span>Seminyak, Bali</span>
-                        <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.89</span>
-                    </div>
-                    <div class="type-details">Entire villa</div>
-                    <div class="type-details">4 beds • 3 baths</div>
-                    <div class="price-info">$310 <span>/ night</span></div>
-                </div>
+          </div>
+          <div class="card-details">
+            <div class="location-rating">
+              <span>Santorini, Greece</span>
+              <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.97</span>
             </div>
+            <div class="type-details">Entire villa</div>
+            <div class="type-details">3 beds • 2 baths</div>
+            <div class="price-info">$420 <span>/ night</span></div>
+          </div>
         </div>
+      </div>
 
-        <!-- Card 4 -->
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-            <div class="card-custom" id="card-4">
-                <div class="image-container">
-                    <div class="badge-favorite">Guest favorite</div>
-                    <button class="like-btn" onclick="toggleLike(this, event)">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    
-                    <div class="nav-arrow prev" onclick="moveSlide('card-4', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="nav-arrow next" onclick="moveSlide('card-4', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
-                    
-                    <div class="carousel-inner-custom" data-index="0">
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="NYC 1"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="NYC 2"></div>
-                        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="NYC 3"></div>
-                    </div>
-
-                    <div class="dots-container">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </div>
-                <div class="card-details">
-                    <div class="location-rating">
-                        <span>New York City, USA</span>
-                        <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.95</span>
-                    </div>
-                    <div class="type-details">Entire penthouse</div>
-                    <div class="type-details">3 beds • 2 baths</div>
-                    <div class="price-info">$890 <span>/ night</span></div>
-                </div>
+      <!-- Card 2 -->
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <div class="card-custom" id="card-2">
+          <div class="image-container">
+            <button class="like-btn" onclick="toggleLike(this, event)">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+            
+            <div class="nav-arrow prev" onclick="moveSlide('card-2', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="nav-arrow next" onclick="moveSlide('card-2', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="carousel-inner-custom" data-index="0">
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=600&q=80" alt="Cabin 1"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=600&q=80" alt="Cabin 2"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80" alt="Cabin 3"></div>
             </div>
+
+            <div class="dots-container">
+              <div class="dot active"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="card-details">
+            <div class="location-rating">
+              <span>Åre, Sweden</span>
+              <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.92</span>
+            </div>
+            <div class="type-details">Entire cabin</div>
+            <div class="type-details">2 beds • 1 bath</div>
+            <div class="price-info">$185 <span>/ night</span></div>
+          </div>
         </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <div class="card-custom" id="card-3">
+          <div class="image-container">
+            <button class="like-btn" onclick="toggleLike(this, event)">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+            
+            <div class="nav-arrow prev" onclick="moveSlide('card-3', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="nav-arrow next" onclick="moveSlide('card-3', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="carousel-inner-custom" data-index="0">
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali 1"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Bali 2"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=600&q=80" alt="Bali 3"></div>
+            </div>
+
+            <div class="dots-container">
+              <div class="dot active"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="card-details">
+            <div class="location-rating">
+              <span>Seminyak, Bali</span>
+              <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.89</span>
+            </div>
+            <div class="type-details">Entire villa</div>
+            <div class="type-details">4 beds • 3 baths</div>
+            <div class="price-info">$310 <span>/ night</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <div class="card-custom" id="card-4">
+          <div class="image-container">
+            <div class="badge-favorite">Guest favorite</div>
+            <button class="like-btn" onclick="toggleLike(this, event)">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+            
+            <div class="nav-arrow prev" onclick="moveSlide('card-4', -1, event)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="nav-arrow next" onclick="moveSlide('card-4', 1, event)"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="carousel-inner-custom" data-index="0">
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="NYC 1"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="NYC 2"></div>
+              <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="NYC 3"></div>
+            </div>
+
+            <div class="dots-container">
+              <div class="dot active"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="card-details">
+            <div class="location-rating">
+              <span>New York City, USA</span>
+              <span class="rating"><i class="fa-solid fa-star star-icon"></i> 4.95</span>
+            </div>
+            <div class="type-details">Entire penthouse</div>
+            <div class="type-details">3 beds • 2 baths</div>
+            <div class="price-info">$890 <span>/ night</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
-</div>
-   <!-- /Dilakshan's Guest cards section end -->
+  </div>
 
-    <!-- ============================================================
-       Lakshana's How it works section start
+
+  <!-- ============================================================
+       HOW IT WORKS SECTION
+       • py-5: Generates deep vertical padding tracks (3rem top/bottom).
+       • bg-light: Applies Bootstrap's light neutral gray background hue.
   ============================================================ -->
-   <section class="how-it-works py-5 bg-light">
+  <section class="how-it-works py-5 bg-light">
     <div class="container py-4">
+      
+      <!-- mb-5: Pushes down secondary grid content safely by 3rem -->
       <div class="text-center mb-5">
+        <!-- 
+           • text-uppercase: Capitalizes all characters.
+           • text-danger: Applies theme brand secondary color accent (red).
+           • tracking-wide/small: Layout tracking styling overrides.
+        -->
         <p class="text-uppercase text-danger fw-bold tracking-wide small mb-1">Simple & Seamless</p>
         <h2 class="fw-bold text-dark display-6">How it works</h2>
       </div>
 
+      <!-- justify-content-center: Horizontally targets center alignment if column sets collapse down -->
       <div class="row g-4 justify-content-center">
 
+        <!-- Step 1 -->
         <div class="col-lg-4 col-md-6">
+          <!-- 
+             • gap-3: Holds a crisp 1rem buffer space open between the active icon-box and the text content.
+             • align-items-start: Locks alignment bounds to the top edge for text flow safety.
+          -->
           <div class="d-flex align-items-start gap-3">
+            <!-- 
+               • flex-shrink-0: Keeps layout box from collapsing when inner text container expands.
+               • fs-5: Font-size set at level 5 (1.25rem sizing scale).
+            -->
             <div class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-magnifying-glass text-danger fs-5"></i>
             </div>
             <div>
               <span class="step-number text-danger fw-semibold d-block small mb-1">01</span>
               <h5 class="fw-bold text-dark mb-2">Search your destination</h5>
+              <!-- lh-base: Resets text layout tracking line heights back to standard parameters -->
               <p class="text-muted small lh-base">Enter where you want to go, your travel dates, and the number of guests. Filter by property type, amenities, price range, and more.</p>
             </div>
           </div>
         </div>
 
+        <!-- Step 2 -->
         <div class="col-lg-4 col-md-6">
           <div class="d-flex align-items-start gap-3">
             <div class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center">
@@ -582,6 +534,7 @@
           </div>
         </div>
 
+        <!-- Step 3 -->
         <div class="col-lg-4 col-md-6">
           <div class="d-flex align-items-start gap-3">
             <div class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center">
@@ -600,120 +553,121 @@
   </section>
 
 
-
-
-
-  
-
-
-    <!-- /Lakshana's  How it works section end -->
-
-    <!-- ============================================================
-       Lakshana's Testimonial and Host CTA Section start
+  <!-- ============================================================
+       TESTIMONIALS & CTA BANNER SECTION
   ============================================================ -->
-  
-      <div class="container">
-        <hr class="divider">
+  <div class="container">
+    <!-- divider: Decorative structural block separating major content shifts -->
+    <hr class="divider">
 
-        <section class="testimonials-section">
-            <span class="tagline">TRUSTED BY MILLIONS</span>
-            <h3 class="testimonials-heading">What guests are saying</h3>
+    <section class="testimonials-section">
+      <span class="tagline">TRUSTED BY MILLIONS</span>
+      <h3 class="testimonials-heading">What guests are saying</h3>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Absolutely magical experience. The property was exactly as described — even better in person. Our host was incredibly responsive and the check-in was seamless."</p>
-                    <div class="user-info">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <h4 class="user-name">Sophie L.</h4>
-                            <p class="review-date">May 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"One of the best travel experiences I've ever had. The location was stunning, the amenities were top-notch, and every detail was thoughtfully arranged."</p>
-                    <div class="user-info">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <h4 class="user-name">Marcus T.</h4>
-                            <p class="review-date">April 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"We use Airbnb for every trip now — the variety of unique stays is unmatched. This particular property blew us away. Already planning our return trip."</p>
-                    <div class="user-info">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <h4 class="user-name">Priya K.</h4>
-                            <p class="review-date">March 2026</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Absolutely magical experience. The property was exactly as described — even better in person. Our host was incredibly responsive and the check-in was seamless."</p>
+          <div class="user-info">
+            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <h4 class="user-name">Sophie L.</h4>
+              <p class="review-date">May 2026</p>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section class="cta-banner">
-            <div class="cta-left">
-                <span class="cta-tagline">EARN EXTRA INCOME</span>
-                <h2 class="cta-title">Turn your space into a source of income</h2>
-                <p class="cta-desc">Join over 4 million hosts worldwide. Share your home, earn on your schedule, and connect with guests from every corner of the globe.</p>
-                <a href="#" class="cta-btn">Learn about hosting</a>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"One of the best travel experiences I've ever had. The location was stunning, the amenities were top-notch, and every detail was thoughtfully arranged."</p>
+          <div class="user-info">
+            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <h4 class="user-name">Marcus T.</h4>
+              <p class="review-date">April 2026</p>
             </div>
+          </div>
+        </div>
 
-            <div class="cta-right">
-                <div class="feature-box">
-                    <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
-                    <div>
-                        <h3>Superhost program</h3>
-                        <p>Earn recognition for exceptional hospitality.</p>
-                    </div>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
-                    <div>
-                        <h3>AirCover protection</h3>
-                        <p>$1M host liability insurance included.</p>
-                    </div>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div>
-                        <h3>Easy setup</h3>
-                        <p>Your listing live in under 10 minutes.</p>
-                    </div>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-                    <div>
-                        <h3>24/7 support</h3>
-                        <p>Our team is always here to help you.</p>
-                    </div>
-                </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"We use Airbnb for every trip now — the variety of unique stays is unmatched. This particular property blew us away. Already planning our return trip."</p>
+          <div class="user-info">
+            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <h4 class="user-name">Priya K.</h4>
+              <p class="review-date">March 2026</p>
             </div>
-        </section>
-    </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Custom layout banner utilizing grid files hosted in CSS/CTA.css -->
+    <section class="cta-banner">
+      <div class="cta-left">
+        <span class="cta-tagline">EARN EXTRA INCOME</span>
+        <h2 class="cta-title">Turn your space into a source of income</h2>
+        <p class="cta-desc">Join over 4 million hosts worldwide. Share your home, earn on your schedule, and connect with guests from every corner of the globe.</p>
+        <a href="#" class="cta-btn">Learn about hosting</a>
+      </div>
 
+      <div class="cta-right">
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
+          <div>
+            <h3>Superhost program</h3>
+            <p>Earn recognition for exceptional hospitality.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <div>
+            <h3>AirCover protection</h3>
+            <p>$1M host liability insurance included.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <h3>Easy setup</h3>
+            <p>Your listing live in under 10 minutes.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <h3>24/7 support</h3>
+            <p>Our team is always here to help you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-
-
-  
-
-
-    <!-- /Lakshana's  Testimonial and Host CTA Section end -->
-
-    <!-- ============================================================
-       Dilakshan's Footer Section start
-  ============================================================ -->
-<footer class="pt-5 mt-5">
+<!-- ============================================================
+        Dilakshan's Footer Section start
+        • pt-5: Applies Level 5 Top Padding (3rem) to give space above footer content.
+        • mt-5: Applies Level 5 Top Margin (3rem) to push the footer away from preceding sections.
+    ============================================================ -->
+    <footer class="pt-5 mt-5">
+        <!-- container: Centers the content and applies responsive max-width thresholds across breakpoints -->
         <div class="container">
+            
+            <!-- 
+               • row: Initializes a flex-wrap container designed to hold column groups.
+               • g-4: Generates a uniform grid gap/gutter spacing of 1.5rem horizontally and vertically.
+               • pb-4: Generates a 1.5rem bottom padding boundary right above the lower legal bar.
+            -->
             <div class="row g-4 pb-4">
+                
+                <!-- 
+                   • col-6: Allocates 6 out of 12 columns (exactly 50% width) on mobile screen sizes.
+                   • col-md-3: Scales down to 3 out of 12 columns (exactly 25% width) on Medium screen breakpoints (≥768px).
+                -->
                 <div class="col-6 col-md-3">
                     <h6>Support</h6>
                     <ul>
@@ -726,6 +680,7 @@
                     </ul>
                 </div>
 
+                <!-- Column 2: Community Links -->
                 <div class="col-6 col-md-3">
                     <h6>Community</h6>
                     <ul>
@@ -736,6 +691,7 @@
                     </ul>
                 </div>
 
+                <!-- Column 3: Hosting Links -->
                 <div class="col-6 col-md-3">
                     <h6>Hosting</h6>
                     <ul>
@@ -748,6 +704,7 @@
                     </ul>
                 </div>
 
+                <!-- Column 4: Company Info Links -->
                 <div class="col-6 col-md-3">
                     <h6>Airbnb</h6>
                     <ul>
@@ -761,10 +718,27 @@
                 </div>
             </div>
 
+            <!-- 
+               • footer-bottom: Custom tracking target for the lower layout row rules.
+               • d-flex: Activates a flexbox context layout container.
+               • flex-column: Automatically flows contents vertically stacked by default (for mobile views).
+               • flex-md-row: Pivots direction to a flat horizontal row layout once screen matches Medium widths (≥768px).
+               • justify-content-between: Drives left and right sides to opposite horizontal walls.
+               • align-items-center: Perfectly aligns legal text and regional selectors vertically along their middle line axis.
+            -->
             <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+                
+                <!-- 
+                   • text-center: Centers legal text by default on mobile interfaces.
+                   • text-md-start: Snaps the text back to traditional left-alignment on Medium devices (≥768px).
+                   • mb-3: Sets up a 1rem spacing cushion below the text block on mobile screens.
+                   • mb-md-0: Eliminates the bottom margin completely on screens (≥768px) where flex row layout handles separation.
+                -->
                 <div class="footer-bottom-left text-center text-md-start mb-3 mb-md-0">
+                    <!-- text-danger: Themes the location pinpoint icon with Airbnb's recognizable brand red color accent. me-2: 0.5rem right margin spacing -->
                     <span class="text-danger me-2"><i class="bi bi-geo-alt-fill"></i></span>
                     <span>&copy; 2026 Airbnb, Inc.</span>
+                    <!-- mx-2: Standardized horizontal padding buffer tracking (0.5rem left/right) around inline separation dots (&middot;) -->
                     <span class="mx-2">&middot;</span>
                     <a href="#">Privacy</a>
                     <span class="mx-2">&middot;</span>
@@ -773,6 +747,11 @@
                     <a href="#">Sitemap</a>
                 </div>
 
+                <!-- 
+                   • justify-content-center: Spaces language/currency selections centered on narrow mobile viewports.
+                   • justify-content-md-end: Locks selections to the far right side of the container track on displays (≥768px).
+                   • text-dark: Overrides global link styling variants to present clean, readable dark charcoal typography tones.
+                -->
                 <div class="footer-bottom-right d-flex justify-content-center justify-content-md-end">
                     <a href="#" class="text-dark"><i class="bi bi-globe"></i> English (US)</a>
                     <a href="#" class="text-dark">$ USD</a>
@@ -780,57 +759,81 @@
             </div>
         </div>
     </footer>
-    <!-- /Dilakshan's  Footer Section end -->
+    <!-- /Dilakshan's Footer Section end -->
 
 
   <!-- ============================================================
-       BOOTSTRAP JS  (bundle includes Popper – needed for dropdowns
-       if Bootstrap's own JS components are ever activated)
+       BOOTSTRAP JS 
+       • bundle: Packaged with Popper engine rules to handle complex positional dropdown math scripts smoothly.
+       • defer: Non-blocking script asset parsing routine to guarantee rapid document tree rendering optimization.
   ============================================================ -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     defer
   ></script>
+
+  <!-- ============================================================
+       CUSTOM COMPONENT INTERACTION LOGIC ENGINE
+  ============================================================ -->
   <script>
-    // Slide Navigation Function
+    /**
+     * Card Image Carousel Sliding Matrix Core Engine
+     * @param {string} cardId - Unique identifier attribute matching specific targets.
+     * @param {number} direction - Direction vector mapping steps (-1 for Left slide, 1 for Right slide).
+     * @param {Event} event - Native DOM browser event interception wrapper.
+     */
     function moveSlide(cardId, direction, event) {
-        event.stopPropagation(); // Prevents clicking the arrow from triggering card action
+        // event.stopPropagation(): Halts execution bubble states up through parent containers. 
+        // This stops navigation arrow interactions from mistakenly opening product detail page routing.
+        event.stopPropagation(); 
         
+        // Element Node Tracking Registry Map
         const card = document.getElementById(cardId);
         const track = card.querySelector('.carousel-inner-custom');
         const dots = card.querySelectorAll('.dot');
         
+        // State Processing Variable Compilers
         let currentIndex = parseInt(track.getAttribute('data-index'));
-        const totalSlides = 3; // Given as 3 images per card
+        const totalSlides = 3; // Hardbound static carousel limits set inside guest layout card profiles.
         
+        // Compute new index state bounds
         currentIndex += direction;
         
+        // Bound Limits Interception Checkers (Infinite loop rotation fallback paths)
         if (currentIndex >= totalSlides) {
-            currentIndex = 0;
+            currentIndex = 0; // Wraps around directly back into first image index slot position.
         } else if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
+            currentIndex = totalSlides - 1; // Jumps backward into last index file entry track cleanly.
         }
         
-        // Update index attribute
+        // Persist computed active pointer position tracking back on the DOM structural target
         track.setAttribute('data-index', currentIndex);
         
-        // Apply CSS translate for smooth transition
+        // transform / translateX: Moves the structural sliding horizontal image container rail inside its overflow crop box mask.
+        // Each image holds an equivalent 33.333% space track allocation width inside the inner carousel setup.
         const percentage = -(currentIndex * 33.333);
         track.style.transform = `translateX(${percentage}%)`;
         
-        // Update Active Dot
+        // Toggle Active Indicator Dot Component States
         dots.forEach((dot, idx) => {
             if (idx === currentIndex) {
-                dot.classList.add('active');
+                dot.classList.add('active'); // Paints highlighted filled indicator ring.
             } else {
-                dot.classList.remove('active');
+                dot.classList.remove('active'); // Restores dim layout background visibility tracking values.
             }
         });
     }
 
-    // Like Button Toggle Function
+    /**
+     * Favorites Button Wishlist Toggle Execution Block
+     * @param {HTMLElement} button - Active click target button structure containing vector shape icons.
+     * @param {Event} event - DOM interface interaction handling engine tracker state.
+     */
     function toggleLike(button, event) {
-        event.stopPropagation(); // Prevents clicking the heart from triggering card action
+        // Isolates execution event tracking loops so clicks stay localized strictly to icon graphics spaces.
+        event.stopPropagation(); 
+        
+        // classList.toggle: Cycles active heart state on and off, switching color definitions immediately via CSS.
         button.classList.toggle('liked');
     }
   </script>
