@@ -24,10 +24,30 @@
                 <span class="host-text">Airbnb your home</span>
                 <i class="fa-solid fa-globe globe-icon"></i>
                 <div class="profile-box">
-                    <i class="fa-solid fa-bars"></i>
-                    <i class="fa-solid fa-circle-user user-avatar-icon"></i>
-                </div>
-            </div>
+                   <div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="dropdown" class="dropdown">
+        <a href="#">Sign up</a>
+        <a href="#">Log in</a>
+
+        <hr>
+
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="trip.html">Trips</a>
+        <a href="#">Wishlist</a>
+
+        <hr>
+
+        <a href="#">Help centre</a>
+    </div>
+
+</div>
+        <i class="fa-solid fa-circle-user user-avatar-icon"></i>
+    </div>
+</div>
         </header>
 
         <main class="trip-main-content">
@@ -197,6 +217,17 @@
     </div>
 
     <script>
+
+          function toggleMenu() {
+           const menu = document.getElementById("dropdown");
+
+               if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                          } else {
+                        menu.style.display = "block";
+                      }
+        }
+        
         function openTab(evt, tabName) {
             let tabContent = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabContent.length; i++) {
