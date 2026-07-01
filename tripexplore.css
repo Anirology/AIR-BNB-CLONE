@@ -1,0 +1,91 @@
+/* Custom Styles overriding or extending Bootstrap */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #222222;
+}
+
+/* Navbar Search bar sizing custom fixes */
+.search-bar button {
+    font-size: 0.875rem;
+}
+
+/* Image Grid Uniform heights */
+.object-cover {
+    object-fit: cover;
+}
+
+.gallery-img-main {
+    height: 416px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.gallery-img-sub {
+    height: 204px;
+}
+
+.gallery-img-long {
+    height: 204px;
+}
+
+/* Specific styling adjustments for form widget */
+.small-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Airbnb Signature Pink Gradient for primary CTA */
+.gradient-btn {
+    background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%) !important;
+    border: none !important;
+}
+
+.gradient-btn:hover {
+    opacity: 0.95;
+}
+
+/* Handle line heights nicely */
+.leading-relaxed {
+    line-height: 1.6;
+}
+
+/* Responsive adjust for Gallery and widgets on mobile */
+@media (max-width: 768px) {
+    .gallery-img-main {
+        height: 260px;
+        border-radius: 12px !important;
+    }
+}
+  
+/* Profile Button Hover Effect */
+.cursor-pointer {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.cursor-pointer:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Dropdown Menu text styling */
+.dropdown-menu-item {
+    font-size: 14px;
+}
+
+
+.search-btn {
+    width: 36px;  /* அகலம் */
+    height: 36px; /* உயரம் (அகலமும் உயரமும் சமமாக இருக்க வேண்டும்) */
+    padding: 0;   /* பூட்ஸ்டார்ப் டீஃபால்ட் பேடிங்கை நீக்க */
+    border-radius: 50% !important; /* முழு வட்ட வடிவமாக்க */
+}
+
+/* ஐகான் பட்டனின் நடுவில் சரியாக அமர */
+.search-btn i {
+    font-size: 0.875rem; /* ஐகான் அளவு */
+}
